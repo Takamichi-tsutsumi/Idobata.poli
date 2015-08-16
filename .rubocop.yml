@@ -1,0 +1,11 @@
+AllCops:
+  RunRailsCops: true
+
+Encoding:
+  EnforcedStyle: when_needed
+
+AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Documentation:
+  Enabled: false
