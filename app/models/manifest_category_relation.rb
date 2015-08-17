@@ -10,4 +10,6 @@
 #
 
 class ManifestCategoryRelation < ActiveRecord::Base
+  belongs_to :manifest
+  belongs_to :category
 end

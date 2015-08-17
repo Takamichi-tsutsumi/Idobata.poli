@@ -11,4 +11,6 @@
 #
 
 class Category < ActiveRecord::Base
+  has_many :manifest_category_relations
+  has_many :manifests, :through => :manifest_category_relations
 end

@@ -10,4 +10,6 @@
 #
 
 class Question < ActiveRecord::Base
+  has_many :policy_points
+  has_many :political_parties, :through => :policy_points
 end

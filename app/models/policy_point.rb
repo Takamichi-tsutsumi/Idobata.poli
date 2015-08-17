@@ -11,4 +11,6 @@
 #
 
 class PolicyPoint < ActiveRecord::Base
+  belongs_to :political_party
+  belongs_to :question
 end

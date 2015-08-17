@@ -12,4 +12,8 @@
 #
 
 class Manifest < ActiveRecord::Base
+  belongs_to :user
+  has_many :manifest_category_relations
+  has_many :categories, :through => :manifest_category_relations
+  has_many :votes
 end
