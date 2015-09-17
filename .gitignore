@@ -13,7 +13,7 @@ vendor/bundle
 /log/*
 !/log/.keep
 /tmp
-
+/config/database.yml
 # Ignore other unneeded files.
 doc/
 *.swp
@@ -22,3 +22,4 @@ doc/
 .DS_Store
 .idea
 .secret
+
