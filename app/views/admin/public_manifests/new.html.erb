@@ -1,0 +1,14 @@
+<%= form_for @public_manifest, :url => {:action => 'create'} do |f| %>
+<div>
+	<%= f.label :title, 'タイトル', class: 'require' %>
+	<%= f.text_field :title, required:true %>
+</div>
+<div>
+	<%= f.label :content, '内容', class: 'require' %>
+	<%= f.text_field :content, required:true %>
+</div>
+<div>
+	<%= f.submit '送信' %>
+</div>
+
+<% end %>
