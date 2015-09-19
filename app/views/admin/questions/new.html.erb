@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <h1>新規質問</h1>
+  </div>
+  <div>
+    <%= form_for @question, url: { controller: :questions, action: :create } do |f| %>
+      <% if @question.errors.any? %>
+        <%= render "admin/shared/form_errors", object: @question%>
+      <% end %>
+      <%= render "form", f: f %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "一覧に戻る", admin_questions_path %>
+  </div>
+</div>

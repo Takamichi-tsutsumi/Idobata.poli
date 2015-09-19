@@ -1,0 +1,11 @@
+<div>質問一覧</div>
+<div>
+<ul>
+  <% @questions.each do |question| %>
+    <a href="questions/<%= question.id %>"> <li> <%= question.content %> </li></a>
+  <% end %>
+</ul>
+</div>
+<div>
+<%= link_to "新規登録", new_admin_question_path %>
+</div>

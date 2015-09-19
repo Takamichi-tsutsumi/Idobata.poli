@@ -1,0 +1,7 @@
+<div>
+  <p><%= @question.content %></p>
+  <div>
+<%= link_to "一覧", admin_questions_path %>
+<%= link_to "削除", {controller: :questions, action: :destroy}, {method: :delete, data: {confirm: "本当に削除しますか？"}} %>
+  </div>
+</div>

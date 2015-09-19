@@ -10,6 +10,11 @@
 #
 
 class Question < ActiveRecord::Base
+
+  validates :content,
+    presence: true,
+    uniqueness: true
+
   has_many :policy_points
   has_many :political_parties, :through => :policy_points
 end
