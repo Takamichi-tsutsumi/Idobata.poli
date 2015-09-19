@@ -1,0 +1,9 @@
+<div>
+  <h1> <%= @political_party.name %> </h1>
+  <p>
+  <%= @political_party.detail %>
+  </p>
+  <%= link_to "一覧に戻る", admin_political_parties_path %>
+  <%= link_to "編集する", edit_admin_political_party_path(@political_party)%>
+  <%= link_to "削除する", {controller: :political_parties, action: :destroy}, { method: :delete, data: {confirm: "この政党に関するデータは全て失われます。\n本当に削除しますか？"} } %>
+</div>

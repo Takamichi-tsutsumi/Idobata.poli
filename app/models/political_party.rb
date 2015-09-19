@@ -10,6 +10,13 @@
 #
 
 class PoliticalParty < ActiveRecord::Base
+
+  validates :name,
+    :presence => true,
+    :uniqueness => true
+  validates :detail,
+    :presence => true
+
   has_many :policy_points
   has_many :questions, :through => :policy_points
 end

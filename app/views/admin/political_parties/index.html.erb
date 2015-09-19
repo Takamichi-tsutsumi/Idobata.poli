@@ -1,0 +1,15 @@
+<div>
+  <h1>政党一覧</h1>
+  <div>
+    <ul>
+      <% @political_parties.each do |political_party| %>
+        <li>
+          <%= link_to political_party.name, admin_political_party_path(political_party) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <%= link_to "新規作成", :action => :new %>
+  </div>
+</div>

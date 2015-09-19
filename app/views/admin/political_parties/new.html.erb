@@ -1,0 +1,14 @@
+<div>
+  <h1>政党登録</h1>
+  <div>
+    <%= form_for @political_party, url: { :controller => :political_parties, :action => :create } do |f| %>
+      <% if @political_party.errors.any? %>
+        <%= render "admin/shared/form_errors", :object => @political_party %>
+      <% end %>
+      <%= render "form", :f => f %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "一覧に戻る", admin_political_parties_path %>
+  </div>
+</div>

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     root 'top#index'
     resources :public_manifests
     resources :manifests
+    resources :political_parties
   end
 end
