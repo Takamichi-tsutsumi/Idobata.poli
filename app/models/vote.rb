@@ -13,5 +13,5 @@
 
 class Vote < ActiveRecord::Base
   has_many :users
-  belongs_to :manifest
+  belongs_to :public_manifest
 end

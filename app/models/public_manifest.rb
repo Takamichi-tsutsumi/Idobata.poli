@@ -10,4 +10,9 @@
 #
 
 class PublicManifest < ActiveRecord::Base
+  has_many :manifests, :through => :manifest_relations
+<<<<<<< HEAD
+  has_many :votes
+=======
+>>>>>>> 2dad334c17704f005955953419df41c8496cc825
 end

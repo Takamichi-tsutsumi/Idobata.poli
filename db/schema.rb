@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918072346) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150919105858) do
+=======
+ActiveRecord::Schema.define(version: 20150919054638) do
+>>>>>>> 2dad334c17704f005955953419df41c8496cc825
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -61,6 +65,13 @@ ActiveRecord::Schema.define(version: 20150918072346) do
     t.integer  "category_id", limit: 4, null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "manifest_relations", force: :cascade do |t|
+    t.integer  "manifest_id",        limit: 4
+    t.integer  "public_manifest_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "manifests", force: :cascade do |t|
@@ -145,12 +156,12 @@ ActiveRecord::Schema.define(version: 20150918072346) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4,     null: false
-    t.integer  "manifest_id", limit: 4,     null: false
-    t.text     "comment",     limit: 65535
-    t.boolean  "point",                     null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "user_id",            limit: 4,     null: false
+    t.text     "comment",            limit: 65535
+    t.boolean  "point",                            null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "public_manifest_id", limit: 4
   end
 
 end
