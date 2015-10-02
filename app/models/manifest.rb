@@ -13,7 +13,6 @@
 
 class Manifest < ActiveRecord::Base
   belongs_to :user
-  has_many :manifest_category_relations
-  has_many :categories, :through => :manifest_category_relations
-  has_many :votes
+  has_many :manifest_relations
+  has_many :public_manifests, :through => :manifest_relations
 end

@@ -1,0 +1,18 @@
+
+<p>
+みんなのマニフェスト一覧
+</p>
+<p>
+new!! >> <%= @public_manifests[0]['created_at'] %>
+<% @public_manifests.each do |public_manifest| %>
+	<%= link_to "#{public_manifest['title']}", "/users/manifests/#{public_manifest.id}" %>
+	カテゴリー:<%= show_category_info(public_manifest['category_id']) %><br>
+<% end %>
+</p>
+<p>
+<%= link_to 'マニフェスト立案', '/users/manifests/new' %>
+<br>
+<br>
+<br>
+<%= link_to 'あなたが投票したマニフェスト', "/users/manifests/#{@user_id}/vote_info" %>
+</p>

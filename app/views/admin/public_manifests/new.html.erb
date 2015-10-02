@@ -1,14 +1,22 @@
 <%= form_for @public_manifest, :url => {:action => 'create'} do |f| %>
-<div>
+	<div>
 	<%= f.label :title, 'タイトル', class: 'require' %>
 	<%= f.text_field :title, required:true %>
-</div>
-<div>
+	</div>
+	<div>
 	<%= f.label :content, '内容', class: 'require' %>
 	<%= f.text_field :content, required:true %>
-</div>
-<div>
-	<%= f.submit '送信' %>
-</div>
+	</div>
+	
+	カテゴリーを一つだけ選ぶ<br>
+	<div>
+		<%= f.label :category_id, 'カテゴリー選択' %>
+		<%= f.select :category_id, @categories %><br>
 
+	</div>
+	<div>
+	<%= f.submit "send" %>
+	</div>
+
+	
 <% end %>

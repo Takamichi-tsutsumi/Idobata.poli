@@ -1,0 +1,38 @@
+<head>
+	<title>public_manifest管理トップ</title>
+</head>
+<h2>public manifest 一覧</h2><br>
+new!>><%= @public_manifests[0]['created_at'] %>作成
+<% @public_manifests.each do |public_manifest| %>
+	【Title】:<%= link_to "#{public_manifest.title}", "/admin/public_manifests/#{public_manifest.id}" %>===>>
+	<%= link_to "編集", "/admin/public_manifests/#{public_manifest.id}/edit" %>
+	<%= link_to "削除", "/admin/public_manifests/#{public_manifest.id}", {:method=>:delete} %>
+	【カテゴリー】：
+	<%= show_category_info(public_manifest['category_id']) %>
+	<% number_of_vote(public_manifest['id']) %>
+	<% n = 0 %>
+	<% k = 0 %>
+	<% @votes.each do |vote| %>
+	<% n = n + vote %>
+	<% k = k + 1 %>
+	<% end %>
+	【point】：<%= n %>
+	【総投票数】：<%= k %>
+	<%  %>
+	<br>
+<% end %><br><br>
+<%= link_to "public_manifest新規作成", "/admin/public_manifests/new" %>
+
+<h4>検索</h4>
+
+<%= form_for @search_form, :url => {:action => 'search'}, html: { method: :get } do |f| %>
+<%= f.label :content, '検索ワード1', class: 'require'  %>
+<%= f.text_field :content, required:true %><br>
+<%= f.label :title, '検索ワード2'%>
+<%= f.text_field :title %> (任意)<br><%= f.submit 'send' %><br>
+<% end %>
+
+<h4>ソート</h4>
+<%= link_to 'カテゴリー', "/admin/public_manifests/category/sort/"%><br>
+票数<%= link_to '🔻', "/admin/public_manifests/descending_vote/sort/"%>
+<%= link_to '🔺', "/admin/public_manifests/ascending_vote/sort/"%>

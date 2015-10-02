@@ -1,0 +1,12 @@
+
+
+<h3><%= @sort_name %></h3>
+
+<% @public_manifests.each do |public_manifest| %>
+【title】<%= public_manifest['title'] %>  =====> 【category】
+<%= show_category_info(public_manifest['category_id']) %>
+<%= link_to '詳細', "/admin/public_manifests/#{public_manifest['id']}/" %>
+<%= link_to '編集', "/admin/public_manifests/#{public_manifest['id']}/edit/" %>
+<%= link_to '削除', "/admin/public_manifests/#{public_manifest['id']}/", :method=>:delete %>
+<br>
+<% end %>

@@ -1,0 +1,40 @@
+<head>
+	<title>publicmanifest詳細表示</title>
+</head>
+<h2> public manifest　詳細</h2>
+
+【title】<%= @public_manifest.title %><br>
+【content】<%= @public_manifest.content %><br><br>
+元となったマニフェスト↓
+<%= link_to '編集', "/admin/public_manifests/#{@public_manifest.id}/register" %><br>
+<% @manifest_relations.each do |manifest_relation| %>
+	<% show_manifest_relation(manifest_relation) %>
+	<% @manifest_relaitons.each do |manifest_relation| %>
+		<%= manifest_relation[0] %>:
+		<%= manifest_relation[1] %><br>
+	<% end %>
+<% end %><br>
+<% number_of_vote(@public_manifest['id']) %>
+	<% favor = 0 %>
+	<% opposite = 0 %>
+	<% neutral = 0 %>
+	<% @votes.each do |vote| %>
+		<% if vote == -1 %>
+			<% opposite += 1 %>
+		<% elsif vote == 1 %>
+			<% favor += 1 %>
+		<% elsif vote == 0 %>
+			<% neutral += 1 %>
+		<% end %>
+	<% end %>
+賛成数：
+<%= favor %><br>
+反対数：
+<%= opposite %><br>
+中立数：
+<%= neutral %><br>
+総投票数：
+<%= favor+opposite+neutral %>
+
+
+

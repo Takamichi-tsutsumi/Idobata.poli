@@ -1,0 +1,8 @@
+<h1>新規カテゴリー作成</h1>
+<%= form_for @category, :url => {:action => 'create'} do |f| %>
+	<%= f.label :name, '名前' %>
+	<%= f.text_field :name %><br>
+	<%= f.label :content, 'コンテンツ' %>
+	<%= f.text_field :content, :size=>"130" %><br>
+	<%= f.submit "create new category" %>
+<% end %>

@@ -1,0 +1,15 @@
+<head>
+	<title>募集マニフェスト管理トップ</title>
+</head>
+ <h1>
+ 	募集マニフェスト一覧
+ </h1>
+
+<p>
+	<% @manifests.each do |manifest| %>
+		【title】<%= link_to "#{manifest['title']}", "/admin/manifests/#{manifest.id}"   %>
+		=====>【content】<%= manifest['content'] %><br>	
+	<% end %><br><br><br><br><br>
+	<%= link_to "新規public_manifest作成", "/admin/public_manifests/new" %>
+
+</p>

@@ -49,18 +49,17 @@ ActiveRecord::Schema.define(version: 20151002054753) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer  "type",       limit: 4,     null: false
     t.string   "name",       limit: 255,   null: false
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
-  create_table "manifest_category_relations", force: :cascade do |t|
-    t.integer  "manifest_id", limit: 4, null: false
-    t.integer  "category_id", limit: 4, null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+  create_table "manifest_relations", force: :cascade do |t|
+    t.integer  "manifest_id",        limit: 4
+    t.integer  "public_manifest_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "manifests", force: :cascade do |t|
@@ -88,10 +87,11 @@ ActiveRecord::Schema.define(version: 20151002054753) do
   end
 
   create_table "public_manifests", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",       limit: 255
+    t.text     "content",     limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "category_id", limit: 4
   end
 
   create_table "question_sets", force: :cascade do |t|
@@ -146,12 +146,12 @@ ActiveRecord::Schema.define(version: 20151002054753) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4,     null: false
-    t.integer  "manifest_id", limit: 4,     null: false
-    t.text     "comment",     limit: 65535
-    t.boolean  "point",                     null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "user_id",            limit: 4,     null: false
+    t.text     "comment",            limit: 65535
+    t.integer  "point",              limit: 4,     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "public_manifest_id", limit: 4
   end
 
 end
