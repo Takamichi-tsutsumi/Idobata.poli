@@ -11,6 +11,19 @@
 #
 
 class PolicyPoint < ActiveRecord::Base
+
+  validates :point,
+    presence: true,
+    numericality: {
+      greater_than_or_equal_to: -2.0,
+      less_than_or_equal_to: 2.0
+    }
+  validates :question_id,
+    presence: true,
+    uniqueness: {scope: :political_party_id}
+  validates :political_party_id,
+    presence: true
+
   belongs_to :political_party
   belongs_to :question
 end

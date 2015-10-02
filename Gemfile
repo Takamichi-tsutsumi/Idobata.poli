@@ -20,6 +20,7 @@ gem 'omniauth-twitter'
 gem 'guard'
 gem 'spring-commands-rspec', group: :development
 # gem 'capistrano-rails', group: :development
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'annotate'

@@ -6,6 +6,10 @@
   <%= f.text_area :detail, :placeholder => "詳細情報" %>
   </div>
   <div>
-  <%= f.submit "登録" %>
+  <%= f.fields_for :policy_points do |point_form| %>
+  <% end %> 
+  </div>
+  <div>
+  <%= f.submit "次へ" %>
   </div>
 </div>

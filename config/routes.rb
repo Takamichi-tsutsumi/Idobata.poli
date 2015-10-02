@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     root 'top#index'
     resources :public_manifests
     resources :manifests
-    resources :political_parties
+    resources :political_parties do
+      member do
+        get 'set_points'
+        patch 'update_policy_points'
+      end
+    end
     resources :questions
     resources :question_sets
   end

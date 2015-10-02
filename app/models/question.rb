@@ -17,4 +17,13 @@ class Question < ActiveRecord::Base
 
   has_many :policy_points
   has_many :political_parties, :through => :policy_points
+
+  # Takamichi Tsutsumi
+  # 質問新規作成時にpolicy_pointsを初期化
+  def init_policy_points
+    political_parties = PoliticalParty.all
+    political_parties.each do |party|
+      party.policy_points.create(question_id: self.id, point: 0)
+    end
+  end
 end

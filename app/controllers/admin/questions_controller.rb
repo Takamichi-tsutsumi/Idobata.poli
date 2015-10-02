@@ -17,6 +17,7 @@ class Admin::QuestionsController < QuestionsController
     @question = Question.new(question_params)
     if @question.valid?
       @question.save
+      @question.init_policy_points
       redirect_to action: :show, id: @question.id
     else
       render :new

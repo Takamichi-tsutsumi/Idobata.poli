@@ -1,0 +1,19 @@
+<div>
+  <h1>質問ポイント登録</h1>
+  <div>
+    <%= form_for @political_party, url: {action: :update_policy_points} do  |f| %>
+      <% @policy_points.each do |policy_point| %>
+        <div>
+          <p> <%= policy_point.question.content %> </p>
+          <%= f.fields_for "policy_points[]", policy_point, index: nil do |point_form| %>
+            <%= point_form.label :point, "ポイント(-2 ~ 2の整数)" %>
+            <%= point_form.select :point, [-2, -1, 0, 1, 2], selected: 0 %>
+            <%= point_form.hidden_field :id, value: policy_point.id %>
+          <% end %>
+        </div>
+      <% end %>
+      <%= f.submit "完了" %>
+    <% end %>
+  </div>
+  <p> <%= link_to "政党一覧へ", admin_political_parties_path %> </p>
+</div>
