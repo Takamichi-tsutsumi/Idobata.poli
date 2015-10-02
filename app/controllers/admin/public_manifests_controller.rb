@@ -19,13 +19,17 @@ class Admin::PublicManifestsController < ApplicationController
 		@public_manifest = PublicManifest.find(params[:id])
 	end
 
-	def create
-		@public_manifest = PublicManifest.new(public_manifest_params)
-		if @public_manifest.save
-			flash.notice = "どのマニフェストを元にこのpublicmanifestを作成しましたか？"
-			redirect_to :action => "manifests_relation_edit", :id => @public_manifest.id
-		else
-			render action  'new'
+  def create
+    @public_manifest = PublicManifest.new(public_manifest_params)
+    if @public_manifest.save 
+      if Manifest.all.any?
+        flash.notice = "どのマニフェストを元にこのpublicmanifestを作成しましたか？"
+        redirect_to :action => "manifests_relation_edit", :id => @public_manifest.id
+      else 
+        redirect_to :action => :index
+      end
+    else
+      render action  'new'
 		end
 	end
 

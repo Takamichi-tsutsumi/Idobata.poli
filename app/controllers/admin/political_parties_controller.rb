@@ -27,7 +27,11 @@ class Admin::PoliticalPartiesController < PoliticalPartiesController
     @political_party.attributes = political_party_params
     if @political_party.save
       @political_party.check_policy_point
-      redirect_to :action => :set_points, :id => @political_party.id
+      if Question.all.any?
+        redirect_to :action => :set_points, :id => @political_party.id
+      else
+        redirect_to :action = :index
+      end
     else
       render :edit
     end
