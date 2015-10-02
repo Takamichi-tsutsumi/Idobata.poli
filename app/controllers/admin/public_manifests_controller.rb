@@ -83,7 +83,8 @@ class Admin::PublicManifestsController < ApplicationController
 
 	def sort
 		if params[:type] == "category"
-			@public_manifests_sorted_category = PublicManifest.all.sort_by{ |item| item['category_id'] }
+			@public_manifests = PublicManifest.all.sort_by{ |item| item['category_id'] }
+			@sort_name = 'カテゴリー順'
 		else
 			@total_point_of_public_manifests = []
 			PublicManifest.all.each do |public_manifest|
@@ -92,17 +93,15 @@ class Admin::PublicManifestsController < ApplicationController
 				@points_of_public_manifests.each do |point_of_public_manifest|
 					@total_point_of_public_manifest += point_of_public_manifest
 				end
-				@total_point_of_public_manifests.push({"public_manifest_id" => public_manifest['id'], "point" => @total_point_of_public_manifest})
+				@total_point_of_public_manifests.push({"title" => public_manifest['title'], "public_manifest_id" => public_manifest['id'], "category_id" => public_manifest['category_id'], "point" => @total_point_of_public_manifest})
 			end
-			if params[:type] == "descending_vote"
-				@descending_vote_of_pubic_manifests = @total_point_of_public_manifests.sort_by{ |item| item['point']}.reverse
-			elsif params[:type] == "ascending_vote"
-				@ascending_vote_of_public_manifests = @total_point_of_public_manifests.sort_by{ |item| item['point']}
+			if params[:type] == "descending_vote" #voteの降順
+				@sort_name = '投票数（降順）'
+				@public_manifests = @total_point_of_public_manifests.sort_by{ |item| item['point']}.reverse
+			elsif params[:type] == "ascending_vote" #voteの昇順
+				@sort_name = '投票数（昇順）'
+				@public_manifests = @total_point_of_public_manifests.sort_by{ |item| item['point']}
 			end
-			p "======================================================================"
-			p @public_manifests_sorted_category
-			p @descending_vote_of_pubic_manifests
-			p @ascending_vote_of_public_manifests
 		end
 	end
 
