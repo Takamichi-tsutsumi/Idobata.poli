@@ -1,0 +1,19 @@
+<div>
+  <p>
+  <%= link_to "新規登録", new_admin_question_set_path %>
+  </p>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+    </tr>
+    <% @question_sets.each do |set| %>
+      <tr>
+        <td> <a href="<%= admin_question_set_path(set) %>"> <%= set.title %> </a></td>
+        <td> <%= QuestionSet::STATUS[set.status] %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

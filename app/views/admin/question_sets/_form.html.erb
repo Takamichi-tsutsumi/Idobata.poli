@@ -1,0 +1,50 @@
+<%= f.text_field :title, placeholder: "title" %>
+<p>
+<%= f.label :status, "公開ステータス" %>
+<%= f.select :status, [["公開", true], ["非公開", false]] %>
+</p>
+
+<p>
+<%= f.label :q1_id, "質問 No.1" %>
+<%= f.select :q1_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q2_id, "質問 No.2" %>
+<%= f.select :q2_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q3_id, "質問 No.3" %>
+<%= f.select :q3_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q4_id, "質問 No.4" %>
+<%= f.select :q4_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q5_id, "質問 No.5" %>
+<%= f.select :q5_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q6_id, "質問 No.6" %>
+<%= f.select :q6_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q7_id, "質問 No.7" %>
+<%= f.select :q7_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q8_id, "質問 No.8" %>
+<%= f.select :q8_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q9_id, "質問 No.9" %>
+<%= f.select :q9_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+<p>
+<%= f.label :q10_id, "質問 No.10" %>
+<%= f.select :q10_id, @questions.map {|q| [q.content, q.id]} %>
+</p>
+
+<%= f.submit "登録" %>
+
+

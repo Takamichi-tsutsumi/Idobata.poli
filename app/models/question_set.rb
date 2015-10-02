@@ -19,5 +19,15 @@
 #
 
 class QuestionSet < ActiveRecord::Base
+  validates :title,
+    presence: true,
+    uniqueness: true
+  validates :status,
+    presence: true
+
+  STATUS = {
+    true => "公開",
+    false => "非公開"
+  }.freeze
   
 end

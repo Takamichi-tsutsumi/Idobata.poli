@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :manifests
     resources :political_parties
     resources :questions
+    resources :question_sets
   end
 end
