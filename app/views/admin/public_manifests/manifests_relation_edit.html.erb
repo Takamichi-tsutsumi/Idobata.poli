@@ -1,0 +1,11 @@
+<head>
+	<title>マニフェストの関連付け編集</title>
+</head>
+<%= form_tag "/admin/public_manifests/#{@id}/update" do %>
+	<% @manifests.each do |manifest| %>
+		<%= check_box_tag  "relations[]", "#{manifest['id']}" %>
+		<%= manifest['title'] %>:
+		<%= manifest['content'] %><br>
+	<% end %>
+		<%= submit_tag('send') %>
+<% end %>

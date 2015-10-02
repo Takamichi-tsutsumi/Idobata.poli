@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150919105858) do
-=======
-ActiveRecord::Schema.define(version: 20150919054638) do
->>>>>>> 2dad334c17704f005955953419df41c8496cc825
+ActiveRecord::Schema.define(version: 20150925063637) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -53,18 +49,10 @@ ActiveRecord::Schema.define(version: 20150919054638) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer  "type",       limit: 4,     null: false
     t.string   "name",       limit: 255,   null: false
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-  end
-
-  create_table "manifest_category_relations", force: :cascade do |t|
-    t.integer  "manifest_id", limit: 4, null: false
-    t.integer  "category_id", limit: 4, null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
   end
 
   create_table "manifest_relations", force: :cascade do |t|
@@ -99,10 +87,11 @@ ActiveRecord::Schema.define(version: 20150919054638) do
   end
 
   create_table "public_manifests", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",       limit: 255
+    t.text     "content",     limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "category_id", limit: 4
   end
 
   create_table "question_sets", force: :cascade do |t|
@@ -158,7 +147,7 @@ ActiveRecord::Schema.define(version: 20150919054638) do
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id",            limit: 4,     null: false
     t.text     "comment",            limit: 65535
-    t.boolean  "point",                            null: false
+    t.integer  "point",              limit: 4,     null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "public_manifest_id", limit: 4

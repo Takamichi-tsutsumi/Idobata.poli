@@ -1,0 +1,11 @@
+<head>
+	<title>カテゴリートップ</title>
+</head>
+<h2>category一覧</h2>
+<% @categories.each do |category| %>
+	【Title】<%= category['name'] %>   【Content】
+	<%= category['content'] %>
+	<%= link_to "編集", "/admin/categories/#{category.id}/edit" %>
+	<%= link_to "削除", "/admin/categories/#{category.id}", {:method=>:delete} %><br>
+<% end %>
+<%= link_to "新規作成", "/admin/categories/new" %>

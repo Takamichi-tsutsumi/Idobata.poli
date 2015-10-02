@@ -1,0 +1,29 @@
+ <p>
+ タイトル: <%= @public_manifest['title'] %>
+ </p>
+ <p>
+ 内容: <%= @public_manifest['content'] %>
+ </p>
+
+ <div>
+ <%= form_for @vote, :url => {:action => 'vote'} do |f| %>
+ </div>
+
+ <P>
+ 	投票↓
+ </P>
+ <div>
+	<%= f.label :comment, 'コメント', class: 'require' %>
+	<%= f.text_field :comment, required:true %>
+ </div>
+ <div>
+ 	<%= f.select :point, {'賛成' => 1, '反対' => -1, '中立' => 0 } %>
+ </div>
+ <div>
+ 	<%= f.hidden_field :user_id, :value => 1 %>  <!-- 暫定的にuser_idを1としている -->
+ </div>
+ <%= f.hidden_field :public_manifest_id, :value => params[:id] %>
+ <div>
+ 	<%= f.submit '投票確定' %>
+ </div>
+ <% end %>

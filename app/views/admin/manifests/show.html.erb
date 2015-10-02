@@ -1,0 +1,23 @@
+<head>
+	<title>募集マニフェスト詳細</title>
+</head>
+
+<%= @maaaaa %>
+
+<%= @manifest.title %><br>
+<%= @manifest.content %><br>
+<%= @manifest.user_id %><br>
+<%= @manifest.created_at %>	
+
+
+
+<% @manifest_relations.each do |manifest_relation| %>
+	<% show_public_manifest(manifest_relation) %><br>
+	<%= @public_manifest_info[0][0] %>:
+	<%= @public_manifest_info[0][1] %>
+<% end %>
+
+
+	<br>
+<br>
+<%= link_to '消去', "/admin/manifests/#{@manifest.id}", {:method=>:delete} %>

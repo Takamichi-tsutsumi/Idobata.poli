@@ -1,0 +1,25 @@
+<%= link_to '一覧へ戻る' , "/admin/public_manifests/" %>
+
+<h2>検索ワード1:<%= @search_words[0] %><br>検索ワード2:<%= @search_words[1] %></h2>
+<h4>検索結果:<%= @search_results_count %>件</h4>
+<br>
+
+
+<% @search_final_result.each do |public_manifest| %>
+	【Title】:<%= link_to "#{public_manifest.title}", "/admin/public_manifests/#{public_manifest.id}" %>===>>
+	<%= link_to "編集", "/admin/public_manifests/#{public_manifest.id}/edit" %>
+	<%= link_to "削除", "/admin/public_manifests/#{public_manifest.id}", {:method=>:delete} %>
+	【カテゴリー】：
+	<%= show_category_info(public_manifest['category_id']) %>
+	<% number_of_vote(public_manifest['id']) %>
+	<% n = 0 %>
+	<% k = 0 %>
+	<% @votes.each do |vote| %>
+	<% n = n + vote %>
+	<% k = k + 1 %>
+	<% end %>
+	【point】：<%= n %>
+	【総投票数】：<%= k %>
+	<br>
+<% end %>
+

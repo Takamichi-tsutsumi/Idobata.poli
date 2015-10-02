@@ -1,0 +1,8 @@
+<% @public_manifests_sorted_category.each do |public_manifest_sorted_category| %>
+【title】<%= public_manifest_sorted_category[:title] %> =====> 【category】
+<%= show_category_info(public_manifest_sorted_category[:category_id]) %>
+<%= link_to '詳細', "/admin/public_manifests/#{public_manifest_sorted_category['id']}/" %>
+<%= link_to '編集', "/admin/public_manifests/#{public_manifest_sorted_category['id']}/edit/" %>
+<%= link_to '削除', "/admin/public_manifests/#{public_manifest_sorted_category['id']}/", :method=>:delete %>
+<br>
+<% end %>
