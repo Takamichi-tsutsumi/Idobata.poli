@@ -14,7 +14,7 @@ class Users::ManifestsController < ManifestsController
 		@manifest = Manifest.new(manifest_params)
 		if @manifest.save
 			flash.notice = "マニフェストが登録されました!"
-			redirect_to :users_manifests
+			redirect_to action: :index
 		else
 			render action: 'new'
 		end
@@ -32,7 +32,7 @@ class Users::ManifestsController < ManifestsController
 		Vote.where(user_id: @user_id, public_manifest_id: @public_manifest_id).delete_all
 			if @vote.save
 				flash.notice = "投票が完了しました。" 
-				redirect_to :users_manifests
+				redirect_to action: :index
 			else
 				render action 'show'
 			end
@@ -45,7 +45,7 @@ class Users::ManifestsController < ManifestsController
 	def vote_info_delete
 		@votes = Vote.find(params[:id])
 		@votes.delete
-		redirect_to :users_manifests
+		redirect_to action: :index
 	end
 
 	private
