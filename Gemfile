@@ -23,6 +23,7 @@ gem 'spring-commands-rspec', group: :development
 gem 'activerecord-import'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'annotate'

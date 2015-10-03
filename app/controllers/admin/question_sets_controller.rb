@@ -1,5 +1,5 @@
 class Admin::QuestionSetsController < QuestionSetsController
-  # layout "admin"
+  layout "admin"
   before_action :set_model, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_admin!
 

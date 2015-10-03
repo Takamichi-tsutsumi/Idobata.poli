@@ -1,5 +1,5 @@
 class Admin::QuestionsController < QuestionsController
-  # layout "admin"
+  layout "admin"
   before_action :set_question, only: [:show, :edit, :destroy, :update]
   before_action :authenticate_admin!
 

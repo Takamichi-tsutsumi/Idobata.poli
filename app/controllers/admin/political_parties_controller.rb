@@ -1,5 +1,5 @@
 class Admin::PoliticalPartiesController < PoliticalPartiesController
-  # layout "admin"
+  layout "admin"
   before_action :set_political_party, only: [:show, :edit, :update, :destroy, :set_points, :update_policy_points]
   before_action :authenticate_admin!
 
