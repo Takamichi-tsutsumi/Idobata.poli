@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_for :admin
-  root 'top#index'
 
 
-  namespace :users do
+  scope :module => :users do
+    root 'top#index'
     match 'manifests/:id/vote_info' => 'manifests#vote_info', as: :vote_info, :via => :get
   	resources :manifests, only: [ :new, :create, :index, :show ]
     match 'manifests/vote' => 'manifests#vote', as: :vote, :via=> :post
     match 'manifests/vote_info/:id' => 'manifests#vote_info_delete', :via=> :delete
 
+    get 'matching' => 'matching#index'
+    post 'answer' => 'matching#answer'
   end
 
   namespace :admin do

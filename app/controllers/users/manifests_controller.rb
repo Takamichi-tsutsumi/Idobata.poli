@@ -1,4 +1,5 @@
 class Users::ManifestsController < ManifestsController
+	layout "users"
 
 	def index
 		@public_manifests = PublicManifest.all.reverse

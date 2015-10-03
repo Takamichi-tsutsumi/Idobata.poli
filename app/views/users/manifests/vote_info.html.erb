@@ -1,4 +1,4 @@
-<br><h4><%= link_to 'マニフェスト一覧', '/users/manifests' %></h4>
+<br><h4><%= link_to 'マニフェスト一覧', '/manifests' %></h4>
 <h3>投票したマニフェスト</h3>
 <% @votes.each do |vote| %>
 	<% show_voting_history(vote['public_manifest_id']) %>
@@ -15,8 +15,8 @@
 			<%= '【中立】' %>
 		<% end %>
 		<%= @claims[0] %>
-	<%= link_to "edit", "/users/manifests/#{vote['public_manifest_id']}" %>
-	<%= link_to "delete", "/users/manifests/vote_info/#{vote['id']}", :method=>:delete %>
+	<%= link_to "edit", "/manifests/#{vote['public_manifest_id']}" %>
+	<%= link_to "delete", "/manifests/vote_info/#{vote['id']}", :method=>:delete %>
 		<br><br>
 	<% end %>
 <% end %>

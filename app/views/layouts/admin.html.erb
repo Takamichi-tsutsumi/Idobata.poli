@@ -72,9 +72,11 @@
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "#"  %></li>
-              <li><%= link_to "Link2", "#"  %></li>
-              <li><%= link_to "Link3", "#"  %></li>
+              <li><%= link_to "Public Manifests", admin_public_manifests_path  %></li>
+              <li><%= link_to "Manifest", admin_manifests_path  %></li>
+              <li><%= link_to "Question", admin_questions_path  %></li>
+              <li><%= link_to "Question Sets", admin_question_sets_path  %></li>
+              <li><%= link_to "Political Parties", admin_political_parties_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -82,7 +84,7 @@
     </div><!--/row-->
 
     <footer>
-      <p>&copy; Company 2015 <%= if user_signed_in? %> </p>
+      <p>&copy; Company 2015 <%= admin_signed_in? %> </p>
     </footer>
 
   </div> <!-- /container -->
