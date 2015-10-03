@@ -21,6 +21,7 @@ class Admin::QuestionSetsController < QuestionSetsController
       flash.notice = "success!!"
       redirect_to action: :index
     else
+      @questions = Question.all
       render :new
     end
   end

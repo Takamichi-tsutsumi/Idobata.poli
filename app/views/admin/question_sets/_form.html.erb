@@ -1,7 +1,9 @@
+
+
 <%= f.text_field :title, placeholder: "title" %>
 <p>
 <%= f.label :status, "公開ステータス" %>
-<%= f.select :status, [["公開", true], ["非公開", false]] %>
+<%= f.select :status, [["公開", 1], ["非公開", 0]] %>
 </p>
 
 <p>
