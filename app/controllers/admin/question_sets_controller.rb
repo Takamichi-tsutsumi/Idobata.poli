@@ -33,7 +33,7 @@ class Admin::QuestionSetsController < QuestionSetsController
   def update
     @question_set.attributes = question_set_params
     if @question_set.save
-      flash.noticd = "success!!"
+      flash.notice = "success!!"
       redirect_to action: :index
     else
       @questions = Question.all

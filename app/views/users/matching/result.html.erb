@@ -1,0 +1,18 @@
+<div>
+	<h1>マッチング結果</h1>
+	<div>
+		<table>
+			<tr>
+				<th>政党名</th>
+				<th>マッチング度(0 ~ 100)</th>
+			</tr>
+			<% @matched_parties_hash.each do |party| %>
+			<tr>
+				<td><%= party[0] %></td>
+				<td><%= party[1].to_i + 50 %></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+  <%= link_to "topへ", root_path %>
+</div>

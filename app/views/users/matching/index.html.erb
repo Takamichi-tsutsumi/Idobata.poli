@@ -1,0 +1,22 @@
+<div class="col-lg-9">
+  <div>
+  <h1>マッチング</h1>
+  <%= @question_set.title %>
+  <p>10の質問に答えて、あなたの考えに近い政党を知りましょう！</p>
+  </div>
+  <div class="form">
+    <%= form_for @answer, :url => {:controller => :matching, :action => :answer} do |f| %>
+    <% (1..10).each do |i| %>
+      <div>
+        <%= question(@question_set.__send__("q"+i.to_s+"_id")) %>
+        <%= f.select "q"+i.to_s+"_ans", [["賛成", 1], ["中立", 0], ["反対", -1]] %>
+      </div>
+      
+    <% end %>
+    <%= f.hidden_field :question_set_id, :value => @question_set.id %>
+    <%= f.submit "結果を見る", :class => "btn btn-primary" %>
+  <% end %>
+  
+  </div>
+
+</div>

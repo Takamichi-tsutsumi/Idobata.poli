@@ -26,4 +26,10 @@ class Question < ActiveRecord::Base
       party.policy_points.create(question_id: self.id, point: 0)
     end
   end
+
+  # Takamichi Tsutsumi
+  # partyを受け取ってquestionのpointを渡す
+  def point(party)
+    PolicyPoint.where(:question_id => self.id, :political_party_id => party.id).first.point
+  end
 end

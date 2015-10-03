@@ -15,8 +15,8 @@ class PolicyPoint < ActiveRecord::Base
   validates :point,
     presence: true,
     numericality: {
-      greater_than_or_equal_to: -2.0,
-      less_than_or_equal_to: 2.0
+      greater_than_or_equal_to: -5.0,
+      less_than_or_equal_to: 5.0
     }
   validates :question_id,
     presence: true,

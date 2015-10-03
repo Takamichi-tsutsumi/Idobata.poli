@@ -51,3 +51,10 @@ QuestionSet.create(
 	status: 1
 )
 p "done"
+
+p "--create a Political Party"
+PoliticalParty.create(
+  name: "新党がんばり党",
+  detail: "テスト用の党"
+)
+p "done"

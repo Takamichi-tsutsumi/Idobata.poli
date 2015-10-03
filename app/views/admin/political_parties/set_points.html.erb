@@ -7,7 +7,7 @@
           <p> <%= policy_point.question.content %> </p>
           <%= f.fields_for "policy_points[]", policy_point, index: nil do |point_form| %>
             <%= point_form.label :point, "ポイント(-2 ~ 2の整数)" %>
-            <%= point_form.select :point, [-2, -1, 0, 1, 2], selected: 0 %>
+            <%= point_form.select :point, [5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5], selected: 0 %>
             <%= point_form.hidden_field :id, value: policy_point.id %>
           <% end %>
         </div>
