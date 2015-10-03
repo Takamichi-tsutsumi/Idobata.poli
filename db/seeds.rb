@@ -31,7 +31,7 @@ p "-- create a public_manifest"
 PublicManifest.create(
   title: "タイトル",
   content: "コンテンツ",
-  category_id: 1
+  category_id: 2 
 )
 p "done"
 
