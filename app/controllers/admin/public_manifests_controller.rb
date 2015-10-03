@@ -1,5 +1,7 @@
 class Admin::PublicManifestsController < ApplicationController
 
+  before_action :authenticate_admin!
+
 	def index
 		@public_manifests = PublicManifest.all.reverse
 		@search_form = PublicManifest.new

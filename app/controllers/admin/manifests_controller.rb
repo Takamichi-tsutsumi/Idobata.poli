@@ -1,4 +1,5 @@
 class Admin::ManifestsController < ManifestsController
+  before_action :authenticate_admin!
 
 	def index
 		@manifests = Manifest.all

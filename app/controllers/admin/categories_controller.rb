@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ManifestsController
+  before_action :authenticate_admin!
 
 	def index
 		@categories = Category.all

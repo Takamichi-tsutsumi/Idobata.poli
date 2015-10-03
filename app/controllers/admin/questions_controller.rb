@@ -1,6 +1,7 @@
 class Admin::QuestionsController < QuestionsController
   # layout "admin"
   before_action :set_question, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_admin!
 
   def index
     @questions = Question.all

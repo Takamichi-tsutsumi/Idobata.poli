@@ -1,6 +1,7 @@
 class Admin::QuestionSetsController < QuestionSetsController
   # layout "admin"
   before_action :set_model, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_admin!
 
   def index
     @question_sets = QuestionSet.all

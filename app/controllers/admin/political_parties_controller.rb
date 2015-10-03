@@ -1,6 +1,7 @@
 class Admin::PoliticalPartiesController < PoliticalPartiesController
   # layout "admin"
   before_action :set_political_party, only: [:show, :edit, :update, :destroy, :set_points, :update_policy_points]
+  before_action :authenticate_admin!
 
   def new
     @political_party = PoliticalParty.new
@@ -30,7 +31,7 @@ class Admin::PoliticalPartiesController < PoliticalPartiesController
       if Question.all.any?
         redirect_to :action => :set_points, :id => @political_party.id
       else
-        redirect_to :action = :index
+        redirect_to :action => :index
       end
     else
       render :edit

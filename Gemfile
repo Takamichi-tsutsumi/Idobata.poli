@@ -21,6 +21,8 @@ gem 'guard'
 gem 'spring-commands-rspec', group: :development
 # gem 'capistrano-rails', group: :development
 gem 'activerecord-import'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
 
 group :development, :test do
   gem 'annotate'
